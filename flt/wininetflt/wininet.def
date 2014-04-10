@@ -1,0 +1,5 @@
+NAME dprobe.wininet.flt
+
+EXPORTS
+	BtrFltGetObject
+

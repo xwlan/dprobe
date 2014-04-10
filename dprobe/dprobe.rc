@@ -1,0 +1,1095 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#endif
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_STACK DIALOGEX 0, 0, 295, 224
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_VISIBLE
+EXSTYLE WS_EX_CONTROLPARENT | WS_EX_NOACTIVATE
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST_STACKTRACE,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,8,7,280,196,WS_EX_TRANSPARENT
+END
+
+IDD_DIALOG_EXPORT DIALOGEX 0, 0, 322, 246
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Export Configuration"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,205,225,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,265,225,50,14
+    LTEXT           "Task:",IDC_STATIC,7,7,34,8
+    CONTROL         "",IDC_LIST_EXPORT_TASK,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_EDITLABELS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,16,308,59
+    LTEXT           "Probe:",IDC_STATIC,7,87,33,8
+    CONTROL         "",IDC_LIST_EXPORT_PROBE,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,98,308,117
+END
+
+IDD_DIALOG_MINITASK DIALOGEX 0, 0, 312, 101
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Task"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST_MINITASK,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_GROUP | WS_TABSTOP,2,3,308,72
+    DEFPUSHBUTTON   "OK",IDOK,206,82,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,260,82,50,14
+END
+
+IDD_DIALOG_STOP DIALOGEX 0, 0, 314, 126
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Stop Probing"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,201,105,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,257,105,50,14
+    CONTROL         "",IDC_LIST_STOP,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,1,300,95
+    LTEXT           "Static",IDC_STATIC,8,106,177,12
+END
+
+IDD_DIALOG_PROGRESS DIALOGEX 0, 0, 250, 61
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOPMOST
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",WS_BORDER,2,20,245,14
+    LTEXT           "Static",IDC_STATIC,2,3,238,8
+    PUSHBUTTON      "Cancel",IDCANCEL,197,42,50,14
+END
+
+IDD_DIALOG_REPORT DIALOGEX 0, 0, 368, 310
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST_REPORT,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,0,0,366,284
+    DEFPUSHBUTTON   "Close",IDOK,316,291,50,14
+    LTEXT           "Static",IDC_STATIC,3,292,304,8
+END
+
+IDD_DIALOG_QUERY_FILTER DIALOGEX 0, 0, 316, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Query Filter"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,206,164,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,259,164,50,14
+    LTEXT           "Display records matching these conditions:",IDC_STATIC_TITLE,7,4,236,8
+    COMBOBOX        IDC_COMBO_OBJECT,7,19,76,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_RELATION,88,19,54,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_VALUE,147,19,88,30,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Then",IDC_STATIC_THEN,240,21,17,8
+    COMBOBOX        IDC_COMBO_ACTION,261,19,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Reset",IDC_BUTTON_RESET,7,42,50,14
+    PUSHBUTTON      "Remove",IDC_BUTTON_REMOVE,259,42,50,14
+    PUSHBUTTON      "Add",IDC_BUTTON_ADD,204,42,50,14
+    CONTROL         "",IDC_LIST_CONDITION,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,66,302,90
+END
+
+IDD_DIALOG_PERFORMANCE DIALOGEX 0, 0, 498, 278
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST_PERF_PROCESS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,5,1,88,256
+    CONTROL         "",IDC_LIST_PERF_COUNTERS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,100,115,392,142
+    DEFPUSHBUTTON   "Close",IDOK,443,261,50,14
+    LTEXT           "CPU",IDC_STATIC,100,4,24,8
+    LTEXT           "Memory",IDC_STATIC,234,4,29,8
+    LTEXT           "I/O",IDC_STATIC,368,4,23,8
+    LTEXT           "60 Seconds",IDC_STATIC,100,85,40,8
+    RTEXT           "0%",IDC_STATIC,193,85,30,8
+    RTEXT           "100%",IDC_STATIC_CPU_LIMITS,179,4,44,8
+    RTEXT           "100 MB",IDC_STATIC_MEMORY_LIMITS,310,4,47,8,0,WS_EX_RIGHT
+    RTEXT           "1 MB/Sec",IDC_STATIC_IO_LIMITS,419,4,69,8
+    RTEXT           "0",IDC_STATIC,349,85,8,8
+    RTEXT           "0",IDC_STATIC,483,85,8,8
+    LTEXT           "Static",IDC_STATIC_CPU,100,19,123,62,WS_BORDER
+    LTEXT           "Static",IDC_STATIC_IO,368,19,123,62,WS_BORDER
+    LTEXT           "Static",IDC_STATIC_MEMORY,234,19,123,62,WS_BORDER
+    LTEXT           "Static",IDC_STATIC_CAPTION,100,103,392,8
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,100,96,392,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,228,5,1,89
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,362,5,1,89
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,100,2,392,1
+END
+
+IDD_DIALOG_OPTGENERAL DIALOGEX 0, 0, 231, 143
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Search engine:",IDC_STATIC,7,7,49,8
+    EDITTEXT        IDC_EDIT_SEARCHENGINE,7,18,202,14,ES_AUTOHSCROLL
+    CONTROL         "Auto scroll log window",IDC_CHECK_AUTOSCROLL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,42,87,10
+END
+
+IDD_DIALOG_OPTSYMBOL DIALOGEX 0, 0, 227, 140
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Symbol is required to decode captured call stack, put your application's pdb files under the specified symbol path.",IDC_STATIC,5,5,204,22
+    LTEXT           "Symbol path:",IDC_STATIC,5,30,43,8
+    EDITTEXT        IDC_EDIT_SYMPATH,5,43,188,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_SYMPATH,203,43,17,14
+    CONTROL         "Offline Decode",IDC_CHECK_OFFLINEDECODE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,77,215,10
+END
+
+IDD_DIALOG_OPTHIGHLIGHT DIALOGEX 0, 0, 262, 161
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Highlight"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Highlight Duration:",IDC_STATIC,7,9,60,8
+    EDITTEXT        IDC_EDIT_DURATION,77,7,50,14,ES_AUTOHSCROLL
+    LTEXT           "ms",IDC_STATIC,130,9,10,8
+    CONTROL         "",IDC_LIST_COLOR,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,29,248,98
+    LTEXT           "Double click an item to change it",IDC_STATIC,7,136,103,8
+    PUSHBUTTON      "Disable All",IDC_BUTTON_DISABLEALL,150,134,50,14
+    PUSHBUTTON      "Enable All",IDC_BUTTON_ENABLEALL,205,134,50,14
+END
+
+IDD_DIALOG_OPTADVANCED DIALOGEX 0, 0, 225, 138
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Enable kernel mode driver",IDC_CHECK_ENABLE_KERNEL,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,6,194,10
+END
+
+IDD_DIALOG_OPTDEBUGCONSOLE DIALOGEX 0, 0, 262, 161
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Debug Console"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Back Ground",IDC_STATIC_BACKGROUND,7,6,41,8
+    LTEXT           "Static",IDC_STATIC_BACKCOLOR,7,18,44,13,WS_BORDER
+    LTEXT           "Fore Ground",IDC_STATIC,87,6,41,8
+    LTEXT           "Static",IDC_STATIC_FORECOLOR,87,18,44,13,WS_BORDER
+    LTEXT           "Command",IDC_STATIC,166,6,32,8
+    LTEXT           "Static",IDC_STATIC_CMDCOLOR,166,18,44,13,WS_BORDER
+    CONTROL         "Enable debug extension",IDC_CHECK_DEBUGEXTENSION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,44,93,10
+    CONTROL         "Save debug history in debug log",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,57,119,10
+    EDITTEXT        IDC_EDIT1,7,88,248,14,ES_AUTOHSCROLL
+    LTEXT           "Debug log path:",IDC_STATIC,7,76,52,8
+END
+
+IDD_DIALOG_OPTSTORAGE DIALOGEX 0, 0, 262, 161
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Storage"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Paging file backed storage",IDC_CHECK_PAGINGFILE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,7,100,10
+    CONTROL         "Disk file backed storage",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,22,91,10
+    EDITTEXT        IDC_EDIT_CACHEFOLDER,7,49,247,14,ES_AUTOHSCROLL
+    LTEXT           "Disk cache folder:",IDC_STATIC,7,39,58,8
+END
+
+IDD_DIALOG_DEBUGCONSOLE DIALOGEX 0, 0, 322, 300
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Debug Console"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Static",IDC_STATIC,1,3,320,296,WS_BORDER
+END
+
+IDD_DIALOG_PROCESSVIEW DIALOGEX 0, 0, 350, 289
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Task"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,235,270,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,296,270,50,14
+    CONTROL         "",IDC_LIST_PROCESSVIEW,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,0,1,350,258
+    PUSHBUTTON      "Refresh",IDC_BUTTON_REFRESH,4,270,50,14
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 247, 132
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Ok",IDOK,194,113,50,14
+    LTEXT           "PRODUCT",IDC_STATIC_PRODUCT,58,3,143,8
+    CONTROL         "",IDC_LIST_VERSION,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,2,50,242,58
+    LTEXT           "AUTHOR",IDC_STATIC_BUILD,58,15,143,8
+    CONTROL         "Bug Report: <a>mailto:dprobebugs@gmail.com</a>",IDC_SYSLINK,
+                    "SysLink",WS_TABSTOP,57,27,143,8
+END
+
+IDD_DIALOG_COMMAND DIALOGEX 0, 0, 331, 202
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Command Line Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST_OPTIONS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,317,109
+    DEFPUSHBUTTON   "OK",IDOK,274,181,50,14
+    LTEXT           "Static",IDC_STATIC,7,122,317,56
+END
+
+IDD_DIALOG_OPTION DIALOGEX 0, 0, 316, 185
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,205,164,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,259,164,50,14
+    LISTBOX         IDC_LIST_OPTION,7,7,58,146,LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP,WS_EX_CLIENTEDGE
+    LTEXT           "Static",IDC_STATIC,74,7,235,146
+END
+
+IDD_DIALOG_OPTMISC DIALOGEX 0, 0, 241, 151
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_DIALOG_LOG DIALOGEX 0, 0, 389, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Copy",IDC_LOG_COPY,278,164,50,14
+    PUSHBUTTON      "Close",IDOK,332,164,50,14
+    PUSHBUTTON      "Clear",IDC_LOG_CLEAR,7,164,50,14
+    PUSHBUTTON      "Save...",IDC_LOG_SAVE,224,164,50,14
+    LTEXT           "Static",IDC_STATIC,7,7,375,149,SS_SUNKEN
+END
+
+IDD_DIALOG_DETAIL DIALOGEX 0, 0, 318, 274
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TAB_DETAIL,"SysTabControl32",0x0,7,7,304,235
+    PUSHBUTTON      "",IDC_BUTTON_DOWNWARD,7,253,18,14,BS_ICON
+    PUSHBUTTON      "",IDC_BUTTON_UPWARD,30,253,18,14,BS_ICON
+    PUSHBUTTON      "Copy",IDC_BUTTON_COPY,202,253,50,14
+    DEFPUSHBUTTON   "Close",IDOK,261,253,50,14
+END
+
+IDD_DIALOG_OPENPROMPT DIALOGEX 0, 0, 182, 47
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,66,26,50,14
+    LTEXT           "Please stop probing first, then open the log file.",IDC_STATIC_PROMPT,7,7,168,15
+END
+
+IDD_DIALOG_RUN DIALOGEX 0, 0, 316, 122
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Run"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_IMAGEPATH,62,8,223,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_IMAGEPATH,292,7,17,14
+    EDITTEXT        IDC_EDIT_IMAGEARG,62,29,223,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_WORKPATH,62,50,224,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DPCPATH,62,71,223,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_DPCPATH,292,71,17,14
+    DEFPUSHBUTTON   "OK",IDOK,205,101,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,259,101,50,14
+    LTEXT           "Image File:",IDC_STATIC,7,10,46,8
+    LTEXT           "Argument:",IDC_STATIC,7,31,41,8
+    LTEXT           "Import Dpc:",IDC_STATIC,7,74,45,8
+    LTEXT           "Work Path:",IDC_STATIC,7,52,37,8
+END
+
+IDD_DIALOG_PROBING DIALOGEX 0, 0, 362, 302
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,305,281,50,14
+    CONTROL         "",IDC_LIST_PROBES,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,348,266
+END
+
+IDD_DIALOG_FILTER DIALOGEX 0, 0, 364, 241
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST_FILTER,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,130,7,226,207
+    CONTROL         "",IDC_TREE_FILTER,"SysTreeView32",WS_BORDER | WS_HSCROLL | WS_TABSTOP,7,7,121,207
+    DEFPUSHBUTTON   "OK",IDOK,251,220,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,306,220,50,14
+    LTEXT           "Static",IDC_STATIC,8,224,152,10
+    PUSHBUTTON      "Export",IDC_BUTTON_EXPORT,196,220,50,14
+END
+
+IDD_DIALOG_DPC DIALOGEX 0, 0, 316, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,205,164,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,259,164,50,14
+    CONTROL         "",IDC_LIST_DPC,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,302,153
+END
+
+IDD_DIALOG_FAST DIALOGEX 0, 0, 364, 241
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST_FAST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,130,7,226,207
+    CONTROL         "",IDC_TREE_FAST,"SysTreeView32",WS_BORDER | WS_HSCROLL | WS_TABSTOP,7,7,121,207
+    DEFPUSHBUTTON   "OK",IDOK,251,220,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,306,220,50,14
+    LTEXT           "Static",IDC_STATIC,8,224,152,10
+    PUSHBUTTON      "Export",IDC_BUTTON_EXPORT,196,220,50,14
+END
+
+IDD_DIALOG_KERNELMODE DIALOGEX 0, 0, 316, 185
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,205,164,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,259,164,50,14
+    PUSHBUTTON      "IRQL WakeUp",IDC_BUTTON_IRQL_WAKEUP,7,7,50,14
+END
+
+IDD_DIALOG_RESULT DIALOGEX 0, 0, 334, 118
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,277,97,50,14
+    CONTROL         "",IDC_LIST_RESULT,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,320,86
+    PUSHBUTTON      "Copy",IDC_BUTTON_COPY,219,97,50,14
+END
+
+IDD_DIALOG_DUMP DIALOGEX 0, 0, 316, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,259,164,50,14
+    PUSHBUTTON      "Refresh",IDC_BUTTON_REFRESH,202,164,50,14
+    CONTROL         "",IDC_LIST_PROCESS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,5,6,304,151
+    LTEXT           "Right click to pop up menu",IDC_STATIC,6,168,117,8
+END
+
+IDD_DIALOG_SAVE DIALOGEX 0, 0, 250, 65
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOPMOST
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",WS_BORDER,2,20,245,14
+    LTEXT           "Static",IDC_STATIC,2,3,238,8
+    PUSHBUTTON      "Cancel",IDCANCEL,197,45,50,14
+END
+
+IDD_DIALOG_CRASH DIALOGEX 0, 0, 301, 106
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "D Probe"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Full Dump",IDC_FULLDUMP,185,85,50,14
+    PUSHBUTTON      "No Dump",IDC_NODUMP,244,85,50,14
+    DEFPUSHBUTTON   "Mini Dump",IDC_MINIDUMP,126,85,50,14
+    CONTROL         "",IDC_RICHEDIT,"RichEdit20W",WS_BORDER | WS_TABSTOP | 0x8c4,7,7,287,71
+END
+
+IDD_DIALOG_EULA DIALOGEX 0, 0, 386, 186
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Accept",IDOK,273,165,50,14
+    PUSHBUTTON      "Decline",IDCANCEL,329,165,50,14
+    CONTROL         "",IDC_RICHEDIT,"RichEdit20W",WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP | 0x8c4,7,7,372,148
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON_DPROBE         ICON                    "res\\dprobe.ico"
+IDI_ICON_COLLAPSED      ICON                    "res\\collapse.ico"
+IDI_ICON_GENERIC        ICON                    "res\\generic.ico"
+IDI_ICON_ERROR          ICON                    "res\\exclude.ico"
+IDI_ICON_SUCCESS        ICON                    "res\\include.ico"
+IDI_ICON_DOWNWARD       ICON                    "res\\downward.ico"
+IDI_ICON_UPWARD         ICON                    "res\\upward.ico"
+IDI_ICON_FILTER         ICON                    "res\\filter.ico"
+IDI_ICON_SAVE           ICON                    "res\\save.ico"
+IDI_ICON_SUMMARY        ICON                    "res\\summary.ico"
+IDI_ICON_EXPANDED       ICON                    "res\\expand.ico"
+IDI_ICON_FINDBACKWARD   ICON                    "res\\backward.ico"
+IDI_ICON_FINDFORWARD    ICON                    "res\\forward.ico"
+IDI_ICON_AUTOSCROLL     ICON                    "res\\autoscroll.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU_LOGVIEW MENU 
+BEGIN
+    POPUP "ContextMenu"
+    BEGIN
+        MENUITEM "Call Stac&k\tCtrl+K",         IDM_CALLSTACK
+        MENUITEM "Call &Detail\tCtrl+D",        IDM_CALLRECORD
+        MENUITEM SEPARATOR
+        POPUP "Include"
+        BEGIN
+            MENUITEM "Process",                     ID_INCLUDE_PROCESS
+            MENUITEM "PID",                         ID_INCLUDE_PID
+            MENUITEM "TID",                         ID_INCLUDE_TID
+            MENUITEM "Probe",                       ID_INCLUDE_PROBE
+            MENUITEM "Provider",                    ID_INCLUDE_PROVIDER
+            MENUITEM "Return",                      ID_INCLUDE_RETURN
+            MENUITEM "Detail",                      ID_INCLUDE_DETAIL
+        END
+        POPUP "Exclude"
+        BEGIN
+            MENUITEM "Process",                     ID_EXCLUDE_PROCESS
+            MENUITEM "PID",                         ID_EXCLUDE_PID
+            MENUITEM "TID",                         ID_EXCLUDE_TID
+            MENUITEM "Probe",                       ID_EXCLUDE_PROBE
+            MENUITEM "Provider",                    ID_EXCLUDE_PROVIDER
+            MENUITEM "Return",                      ID_EXCLUDE_RETURN
+            MENUITEM "Detail",                      ID_EXCLUDE_DETAIL
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Copy\tCtrl+C",               IDM_COPY
+    END
+END
+
+IDR_DPROBE MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open\tCtrl+O",               IDM_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               IDM_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "&Run\tCtrl+R",                IDM_RUN_PROBE
+        MENUITEM "Sto&p\tCtrl+P",               IDM_STOP_PROBE
+        MENUITEM SEPARATOR
+        MENUITEM "Exit",                        IDM_EXIT
+    END
+    POPUP "View"
+    BEGIN
+        MENUITEM "Call Stac&k\tCtrl+K",         IDM_CALLSTACK
+        MENUITEM "Call &Record\tCtrl+D",        IDM_CALLRECORD
+        MENUITEM SEPARATOR
+        MENUITEM "Find &Forward\tCtrl+F",       IDM_FINDFORWARD
+        MENUITEM "Find &Backward\tCtrl+B",      IDM_FINDBACKWARD
+        MENUITEM SEPARATOR
+        MENUITEM "Auto Scrol&l\tCtrl+L",        IDM_AUTOSCROLL
+    END
+    POPUP "Probe"
+    BEGIN
+        MENUITEM "&Fast Probe\tCtrl+M",         IDM_FAST_PROBE
+        MENUITEM "&Filter Probe\tCtrl+A",       IDM_FILTER_PROBE
+        MENUITEM SEPARATOR
+        MENUITEM "&Import Probe\tCtrl+I",       IDM_FILE_IMPORT
+    END
+    POPUP "Filter"
+    BEGIN
+        MENUITEM "Edit &Filter\tAlt+F",         ID_FILTER_EDIT
+        MENUITEM "&Reset Filter\tAlt+R",        ID_FILTER_RESET
+        MENUITEM "&Import Filter\tAlt+I",       ID_FILTER_IMPORT
+        MENUITEM "&Export Filter\tAlt+E",       ID_FILTER_EXPORT
+    END
+    POPUP "Tool"
+    BEGIN
+        MENUITEM "&Summary\tAlt+S",             IDM_COUNTER
+        MENUITEM "&Performance\tAlt+P",         IDM_PERFORMANCE
+        MENUITEM SEPARATOR
+        MENUITEM "&Dump\tAlt+D",                IDM_DUMP
+        MENUITEM "&Option\tAlt+O",              IDM_OPTION
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "Help\tF1",                    IDM_HELP
+        MENUITEM "&Log\tAlt+L",                 IDM_LOG
+        MENUITEM "&About",                      IDM_ABOUT
+    END
+END
+
+IDR_MENU_FILTER MENU 
+BEGIN
+    POPUP "Filter"
+    BEGIN
+        MENUITEM "Edit &Filter\tAlt+F",         ID_FILTER_EDIT
+        MENUITEM "&Reset Filter\tAlt+R",        ID_FILTER_RESET
+        MENUITEM "&Import Filter\tAlt+I",       ID_FILTER_IMPORT
+        MENUITEM "&Export Filter\tAlt+E",       ID_FILTER_EXPORT
+    END
+END
+
+IDR_MENU_DUMP MENU 
+BEGIN
+    POPUP "Dump"
+    BEGIN
+        MENUITEM "Create Small Dump",           ID_DUMP_SMALLDUMP
+        MENUITEM "Create Full Dump",            ID_DUMP_FULLDUMP
+    END
+END
+
+IDR_MENU_LOGVIEW2 MENU 
+BEGIN
+    POPUP "Copy"
+    BEGIN
+        MENUITEM "&Copy\tCtrl+C",               IDM_COPY
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG_MINITASK, DIALOG
+    BEGIN
+        RIGHTMARGIN, 310
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_DIALOG_STOP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 307
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 119
+    END
+
+    IDD_DIALOG_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 247
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 56
+    END
+
+    IDD_DIALOG_REPORT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 366
+        BOTTOMMARGIN, 308
+    END
+
+    IDD_DIALOG_QUERY_FILTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_DIALOG_PERFORMANCE, DIALOG
+    BEGIN
+        RIGHTMARGIN, 496
+        BOTTOMMARGIN, 277
+    END
+
+    IDD_DIALOG_OPTGENERAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 221
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+
+    IDD_DIALOG_OPTSYMBOL, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 220
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 132
+    END
+
+    IDD_DIALOG_OPTHIGHLIGHT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 154
+    END
+
+    IDD_DIALOG_OPTADVANCED, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 217
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 130
+    END
+
+    IDD_DIALOG_OPTDEBUGCONSOLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        VERTGUIDE, 255
+        TOPMARGIN, 6
+        HORZGUIDE, 153
+    END
+
+    IDD_DIALOG_OPTSTORAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        VERTGUIDE, 254
+        TOPMARGIN, 7
+        HORZGUIDE, 153
+    END
+
+    IDD_DIALOG_DEBUGCONSOLE, DIALOG
+    BEGIN
+        RIGHTMARGIN, 321
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 299
+    END
+
+    IDD_DIALOG_PROCESSVIEW, DIALOG
+    BEGIN
+        RIGHTMARGIN, 317
+        BOTTOMMARGIN, 287
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 244
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_DIALOG_COMMAND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 324
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+    END
+
+    IDD_DIALOG_OPTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_DIALOG_OPTMISC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_DIALOG_LOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 382
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_DIALOG_DETAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 267
+    END
+
+    IDD_DIALOG_OPENPROMPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 175
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 40
+    END
+
+    IDD_DIALOG_RUN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+    END
+
+    IDD_DIALOG_PROBING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 355
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 295
+    END
+
+    IDD_DIALOG_FILTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 356
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 235
+    END
+
+    IDD_DIALOG_DPC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_DIALOG_FAST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 319
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_DIALOG_KERNELMODE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_DIALOG_RESULT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 327
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_DIALOG_DUMP, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 309
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_DIALOG_CRASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 294
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 99
+    END
+
+    IDD_DIALOG_EULA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 379
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName", "lan.john@gmail.com"
+            VALUE "FileDescription", "D Probe Console"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "dprobe"
+            VALUE "LegalCopyright", "Copyright (C) 2009 - 2012  lan.john@gmail.com"
+            VALUE "OriginalFilename", "dprobe.exe"
+            VALUE "ProductName", "D Probe"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// EULA
+//
+
+IDR_EULA1               EULA                    "res\\LICENCE.rtf"
+IDR_EULA2               EULA                    "res\\DUMP.rtf"
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Neutral) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_IMPORT DIALOGEX 0, 0, 316, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Next",IDC_BUTTON_NEXT,205,164,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,259,164,50,14
+    CONTROL         "",IDC_LIST_IMPORT,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,5,7,304,151
+    LTEXT           "Static",IDC_STATIC,5,167,124,11
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG_IMPORT, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (Neutral) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_COUNTER DIALOGEX 0, 0, 444, 190
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,387,169,50,14
+    LTEXT           "Static",IDC_TREE_RECT,7,6,430,154
+END
+
+IDD_DIALOG_RECORD DIALOGEX 0, 0, 295, 228
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+EXSTYLE WS_EX_CONTROLPARENT | WS_EX_NOACTIVATE
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST_RECORD,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,281,109,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT_RECORD,7,124,281,83,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON_APSARA         ICON                    "res\\apsara.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG_COUNTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 437
+        BOTTOMMARGIN, 183
+    END
+
+    IDD_DIALOG_RECORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 288
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 221
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR ACCELERATORS 
+BEGIN
+    "F",            ID_FILTER_EDIT,         VIRTKEY, ALT, NOINVERT
+    "E",            ID_FILTER_EXPORT,       VIRTKEY, ALT, NOINVERT
+    "I",            ID_FILTER_IMPORT,       VIRTKEY, ALT, NOINVERT
+    "R",            ID_FILTER_RESET,        VIRTKEY, ALT, NOINVERT
+    "L",            IDM_AUTOSCROLL,         VIRTKEY, CONTROL, NOINVERT
+    "D",            IDM_CALLRECORD,         VIRTKEY, CONTROL, NOINVERT
+    "K",            IDM_CALLSTACK,          VIRTKEY, CONTROL, NOINVERT
+    "T",            IDM_CALLTREE,           VIRTKEY, CONTROL, NOINVERT
+    "S",            IDM_COUNTER,            VIRTKEY, ALT, NOINVERT
+    "D",            IDM_DUMP,               VIRTKEY, ALT, NOINVERT
+    "M",            IDM_FAST_PROBE,         VIRTKEY, CONTROL, NOINVERT
+    "E",            IDM_FILE_EXPORT,        VIRTKEY, CONTROL, NOINVERT
+    "I",            IDM_FILE_IMPORT,        VIRTKEY, CONTROL, NOINVERT
+    "O",            IDM_FILE_OPEN,          VIRTKEY, CONTROL, NOINVERT
+    "S",            IDM_FILE_SAVE,          VIRTKEY, CONTROL, NOINVERT
+    "A",            IDM_FILTER_PROBE,       VIRTKEY, CONTROL, NOINVERT
+    "B",            IDM_FINDBACKWARD,       VIRTKEY, CONTROL, NOINVERT
+    "F",            IDM_FINDFORWARD,        VIRTKEY, CONTROL, NOINVERT
+    "L",            IDM_LOG,                VIRTKEY, ALT, NOINVERT
+    "O",            IDM_OPTION,             VIRTKEY, ALT, NOINVERT
+    "P",            IDM_PERFORMANCE,        VIRTKEY, ALT, NOINVERT
+    "R",            IDM_RUN_PROBE,          VIRTKEY, CONTROL, NOINVERT
+    "P",            IDM_STOP_PROBE,         VIRTKEY, CONTROL, NOINVERT
+    "C",            IDM_COPY,               VIRTKEY, CONTROL, NOINVERT
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#endif\r\n"
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_APP_TITLE           "D Probe LE 1.0"
+    IDS_PRODUCT             "Apsara D Probe LE 1.0"
+    IDS_BUILD               "(C) 2009-2012 lan.john@gmail.com"
+    IDS_PERFMON             "Performance"
+    IDS_LOG                 "Log"
+    IDS_TAB_RECORD          "Record"
+    IDS_TAB_REGISTER        "Register"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_TAB_STACK           "Call Stack"
+    IDS_CALLDETAIL          "Detail"
+    IDS_FILTER_SELECT       "Total select %d probes"
+    IDS_FILTER_TITLE        "Filter Probe (%ws:%u)"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

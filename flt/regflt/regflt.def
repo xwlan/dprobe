@@ -1,0 +1,4 @@
+NAME dprobe.reg.flt
+
+EXPORTS
+	BtrFltGetObject

@@ -1,0 +1,21 @@
+NAME dprobe.btr.dll
+
+EXPORTS
+	BtrFltStartRuntime
+	BtrFltStopRuntime
+	BtrFltCurrentFeature
+	BtrFltGetContext
+	BtrFltSetContext
+	BtrFltAllocateRecord
+	BtrFltFreeRecord
+	BtrFltQueueRecord
+	BtrFltMalloc
+	BtrFltFree
+	BtrFltConvertAnsiToUnicode
+	BtrFltConvertUnicodeToAnsi
+	BtrFltEnterExemptionRegion
+	BtrFltLeaveExemptionRegion
+	BtrFltGetLastError
+	BtrVersion
+	BtrFormatError
+	BtrStatus=BtrUnloading DATA

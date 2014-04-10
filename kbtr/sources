@@ -1,0 +1,8 @@
+TARGETNAME=dprobe.kbtr
+TARGETTYPE=DRIVER
+TARGETPATH=.\
+
+INCLUDES=$(DDK_INC_PATH)
+LIBS=%BUILD%\lib
+
+SOURCES=kbtr.c resource.rc
