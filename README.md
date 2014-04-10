@@ -7,14 +7,14 @@ of tracing runtime, large volume trace records, conditional filtering in UI, low
 structure
 =========
 
-+ bin      Build target folder
-+ btr      The core runtime injected into target process address space, support both x86/x64 builds
-+ dprobe   UI console, record view, management, trace control, symbol parse etc
-+ flt      Several common custom filters, include fs/mm/registry/ps/net/wininet/
-+ inc      Common headers
-+ lib      Common libs
-+ kbtr     Empty kernel mode driver, not implement yet
-+ sqlite   SQLITE as metadata for configuration purpose
++ bin		Build target folder
++ btr		The core runtime injected into target process address space, support both x86/x64 builds
++ dprobe	UI console, record view, management, trace control, symbol parse etc
++ flt		Several common custom filters, include fs/mm/registry/ps/net/wininet/
++ inc		Common headers
++ lib		Common libs
++ kbtr		Empty kernel mode driver, not implement yet
++ sqlite	SQLITE as metadata for configuration purpose
 
 build
 =====
