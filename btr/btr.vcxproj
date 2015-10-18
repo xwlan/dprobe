@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B618CED0-5128-4EFD-AE30-BA31D4405F13}</ProjectGuid>
+    <RootNamespace>btr</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.61030.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <LinkIncremental />
+    <EmbedManifest>false</EmbedManifest>
+    <TargetName>dprobe.btr</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <LinkIncremental />
+    <TargetName>dprobe.btr</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>dprobe.btr</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>dprobe.btr</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>..\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_DPROBE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling />
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <AssemblerOutput>All</AssemblerOutput>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <Link>
+      <AdditionalDependencies>dbghelp.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>$(OutDir)dprobe.btr.dll</OutputFile>
+      <AdditionalLibraryDirectories>..\lib\x86\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ModuleDefinitionFile>btr.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>true</MapExports>
+      <SubSystem>Windows</SubSystem>
+      <SetChecksum>true</SetChecksum>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /Y $(ProjectDir)btrsdk.h   $(SolutionDir)inc\btrsdk.h
+copy /Y $(ProjectDir)btr.h   $(SolutionDir)inc\btr.h
+copy /Y $(ProjectDir)status.h   $(SolutionDir)\inc\status.h
+copy /Y $(ProjectDir)list.h   $(SolutionDir)inc\list.h
+copy /Y $(ProjectDir)hal.h   $(SolutionDir)inc\hal.h
+copy /Y $(ProjectDir)lock.h   $(SolutionDir)inc\lock.h
+copy /Y $(ProjectDir)bitmap.h   $(SolutionDir)inc\bitmap.h
+
+copy /Y $(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\dprobe.btr.lib $(SolutionDir)lib\$(PlatformTarget)\$(Configuration)\dprobe.btr.lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_M_X64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <AssemblerOutput>All</AssemblerOutput>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <Link>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>$(OutDir)dprobe.btr.dll</OutputFile>
+      <AdditionalLibraryDirectories>..\lib\x64\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ModuleDefinitionFile>btr.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>true</MapExports>
+      <SubSystem>Windows</SubSystem>
+      <SetChecksum>true</SetChecksum>
+      <TargetMachine>MachineX64</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /Y $(ProjectDir)btrsdk.h   $(SolutionDir)inc\btrsdk.h
+copy /Y $(ProjectDir)btr.h   $(SolutionDir)inc\btr.h
+copy /Y $(ProjectDir)status.h   $(SolutionDir)\inc\status.h
+copy /Y $(ProjectDir)list.h   $(SolutionDir)inc\list.h
+copy /Y $(ProjectDir)hal.h   $(SolutionDir)inc\hal.h
+copy /Y $(ProjectDir)lock.h   $(SolutionDir)inc\lock.h
+copy /Y $(ProjectDir)bitmap.h   $(SolutionDir)inc\bitmap.h
+
+copy /Y $(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\dprobe.btr.lib $(SolutionDir)lib\$(PlatformTarget)\$(Configuration)\dprobe.btr.lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <AssemblerOutput>All</AssemblerOutput>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)dprobe.btr.dll</OutputFile>
+      <AdditionalLibraryDirectories>..\lib\x86\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+      <ModuleDefinitionFile>btr.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>true</MapExports>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration />
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /Y $(ProjectDir)btrsdk.h   $(SolutionDir)inc\btrsdk.h
+copy /Y $(ProjectDir)btr.h   $(SolutionDir)inc\btr.h
+copy /Y $(ProjectDir)status.h   $(SolutionDir)\inc\status.h
+copy /Y $(ProjectDir)list.h   $(SolutionDir)inc\list.h
+copy /Y $(ProjectDir)hal.h   $(SolutionDir)inc\hal.h
+copy /Y $(ProjectDir)lock.h   $(SolutionDir)inc\lock.h
+copy /Y $(ProjectDir)bitmap.h   $(SolutionDir)inc\bitmap.h
+
+copy /Y $(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\dprobe.btr.lib $(SolutionDir)lib\$(PlatformTarget)\$(Configuration)\dprobe.btr.lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>false</OmitFramePointers>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_DPROBE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <AssemblerOutput>All</AssemblerOutput>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)dprobe.btr.dll</OutputFile>
+      <AdditionalLibraryDirectories>..\lib\x64\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>btr.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>true</MapExports>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration />
+      <TargetMachine>MachineX64</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /Y $(ProjectDir)btrsdk.h   $(SolutionDir)inc\btrsdk.h
+copy /Y $(ProjectDir)btr.h   $(SolutionDir)inc\btr.h
+copy /Y $(ProjectDir)status.h   $(SolutionDir)\inc\status.h
+copy /Y $(ProjectDir)list.h   $(SolutionDir)inc\list.h
+copy /Y $(ProjectDir)hal.h   $(SolutionDir)inc\hal.h
+copy /Y $(ProjectDir)lock.h   $(SolutionDir)inc\lock.h
+copy /Y $(ProjectDir)bitmap.h   $(SolutionDir)inc\bitmap.h
+
+copy /Y $(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\dprobe.btr.lib $(SolutionDir)lib\$(PlatformTarget)\$(Configuration)\dprobe.btr.lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="bitmap.c" />
+    <ClCompile Include="btr.c" />
+    <ClCompile Include="btrsdk.c" />
+    <ClCompile Include="cache.c" />
+    <ClCompile Include="call.c" />
+    <ClCompile Include="counter.c" />
+    <ClCompile Include="decode.c" />
+    <ClCompile Include="except.c" />
+    <ClCompile Include="filter.c">
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExceptionHandling>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExceptionHandling>
+    </ClCompile>
+    <ClCompile Include="hal.c">
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExceptionHandling>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExceptionHandling>
+    </ClCompile>
+    <ClCompile Include="hde32.c">
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExceptionHandling>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExceptionHandling>
+    </ClCompile>
+    <ClCompile Include="hde64.c" />
+    <ClCompile Include="heap.c">
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExceptionHandling>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExceptionHandling>
+      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AssemblyAndSourceCode</AssemblerOutput>
+      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AssemblyAndSourceCode</AssemblerOutput>
+    </ClCompile>
+    <ClCompile Include="ipc.c" />
+    <ClCompile Include="list.c" />
+    <ClCompile Include="lock.c" />
+    <ClCompile Include="probe.c">
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExceptionHandling>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExceptionHandling>
+    </ClCompile>
+    <ClCompile Include="queue.c" />
+    <ClCompile Include="sched.c" />
+    <ClCompile Include="stktrace.c" />
+    <ClCompile Include="thread.c">
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ExceptionHandling>
+      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">All</AssemblerOutput>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExceptionHandling>
+      <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">All</AssemblerOutput>
+    </ClCompile>
+    <ClCompile Include="trap.c" />
+    <ClCompile Include="unload.c" />
+    <ClCompile Include="util.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="btr.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="stub32.asm">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalOptions>
+      <GeneratePreprocessedSourceListing Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</GeneratePreprocessedSourceListing>
+      <AssembledCodeListingFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stub32.lst</AssembledCodeListingFile>
+      <EnableAssemblyGeneratedCodeListing Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</EnableAssemblyGeneratedCodeListing>
+      <MakeAllSymbolsPublic Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</MakeAllSymbolsPublic>
+      <CallingConvention Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">1</CallingConvention>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalOptions>
+      <GeneratePreprocessedSourceListing Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</GeneratePreprocessedSourceListing>
+      <AssembledCodeListingFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AssembledCodeListingFile>
+      <EnableAssemblyGeneratedCodeListing Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</EnableAssemblyGeneratedCodeListing>
+      <MakeAllSymbolsPublic Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</MakeAllSymbolsPublic>
+      <CallingConvention Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">1</CallingConvention>
+      <AssembledCodeListingFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stub32.lst</AssembledCodeListingFile>
+      <ListAllAvailableInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ListAllAvailableInformation>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </MASM>
+    <MASM Include="stub64.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalOptions>
+      <AssembledCodeListingFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stub64.lst</AssembledCodeListingFile>
+      <ListAllAvailableInformation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ListAllAvailableInformation>
+      <EnableAssemblyGeneratedCodeListing Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</EnableAssemblyGeneratedCodeListing>
+      <MakeAllSymbolsPublic Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</MakeAllSymbolsPublic>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <AssembledCodeListingFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stub64.lst</AssembledCodeListingFile>
+      <ListAllAvailableInformation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ListAllAvailableInformation>
+    </MASM>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bitmap.h" />
+    <ClInclude Include="btr.h" />
+    <ClInclude Include="btrsdk.h" />
+    <ClInclude Include="cache.h" />
+    <ClInclude Include="call.h" />
+    <ClInclude Include="counter.h" />
+    <ClInclude Include="decode.h" />
+    <ClInclude Include="filter.h" />
+    <ClInclude Include="hal.h" />
+    <ClInclude Include="hde32.h" />
+    <ClInclude Include="hde64.h" />
+    <ClInclude Include="heap.h" />
+    <ClInclude Include="ipc.h" />
+    <ClInclude Include="list.h" />
+    <ClInclude Include="lock.h" />
+    <ClInclude Include="probe.h" />
+    <ClInclude Include="pstdint.h" />
+    <ClInclude Include="queue.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="sched.h" />
+    <ClInclude Include="status.h" />
+    <ClInclude Include="stktrace.h" />
+    <ClInclude Include="table32.h" />
+    <ClInclude Include="table64.h" />
+    <ClInclude Include="thread.h" />
+    <ClInclude Include="trap.h" />
+    <ClInclude Include="util.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="btr.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

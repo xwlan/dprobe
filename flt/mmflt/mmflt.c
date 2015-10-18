@@ -40,7 +40,8 @@ MmConvertBitsToString(
 
 	for (Number = 0; Number < BitsSize; Number += 1) {
 		if ((Flags & Bits[Number].Bit) != 0) {
-			Count = sprintf(Next, "%s|", Bits[Number].Text); 
+			Count = sprintf_s(Next, BufferSize - ((ULONG_PTR)Next - (ULONG_PTR)Buffer), 
+				               "%s|", Bits[Number].Text); 
 			Next += Count;
 		}
 	}
@@ -649,7 +650,7 @@ VirtualProtectExDecode(
 	Data = (PMM_VIRTUALPROTECTEX)Record->Data;
 	MmConvertBitsToString(Data->NewProtect, MmProtectionBits, MmProtectionArraySize,
 		                  New, MmProtectionMaxCch, &Length);
-	MmConvertBitsToString(Data->OldProtect, MmProtectionBits, MmProtectionArraySize,
+	MmConvertBitsToString((ULONG)Data->OldProtect, MmProtectionBits, MmProtectionArraySize,
 		                  Old, MmProtectionMaxCch, &Length);
 	
 	StringCchPrintf(Buffer, MaxCount - 1, 

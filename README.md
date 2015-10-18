@@ -19,7 +19,7 @@ structure
 build
 =====
 
-Build dprobe.sln in VS 2008+
+Build dprobe.sln in VS 2008/2012, run clean.bat after build.
 
 contact
 =======

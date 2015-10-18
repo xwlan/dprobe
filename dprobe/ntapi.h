@@ -95,14 +95,14 @@ typedef struct _CLIENT_ID {
 	HANDLE UniqueProcess;
 	HANDLE UniqueThread;
 } CLIENT_ID, *PCLIENT_ID;
-
-typedef enum _THREAD_INFORMATION_CLASS {
-    ThreadBasicInformation,
-} THREAD_INFORMATION_CLASS;
-
-typedef enum _PROCESS_INFORMATION_CLASS {
-    ProcessBasicInformation,
-} PROCESS_INFORMATION_CLASS;
+//
+//typedef enum _THREAD_INFORMATION_CLASS {
+//    ThreadBasicInformation,
+//} THREAD_INFORMATION_CLASS;
+//
+//typedef enum _PROCESS_INFORMATION_CLASS {
+//    ProcessBasicInformation,
+//} PROCESS_INFORMATION_CLASS;
 
 typedef enum _SYSTEM_INFORMATION_CLASS {
     SystemBasicInformation,
@@ -249,7 +249,7 @@ typedef
 NTSTATUS
 (NTAPI *NT_QUERY_INFORMATION_THREAD)(
     IN HANDLE ThreadHandle,
-    IN THREAD_INFORMATION_CLASS ThreadInformationClass,
+    IN ULONG ThreadInformationClass,
     OUT PVOID ThreadInformation,
     IN ULONG ThreadInformationLength,
     OUT PULONG ReturnLength
@@ -259,7 +259,7 @@ typedef
 NTSTATUS
 (NTAPI *NT_QUERY_INFORMATION_PROCESS)(
     IN HANDLE ProcessHandle,
-    IN PROCESS_INFORMATION_CLASS ProcessInformationClass,
+    IN ULONG ProcessInformationClass,
     OUT PVOID ProcessInformation,
     IN ULONG ProcessInformationLength,
     OUT PULONG ReturnLength 

@@ -102,8 +102,9 @@ CreateFileDecode(
 
 	Data = (PFS_CREATEFILE)Record->Data;
 	StringCchPrintf(Buffer, MaxCount - 1, 
-					L"Name=%ws,Access=0x%08x,ShareMode=0x%08x,Handle=0x%p,Status=0x%08x", 
-					Data->Name, Data->DesiredAccess, Data->ShareMode, Data->FileHandle, 
+					L"Name=%ws,Access=0x%08x,ShareMode=0x%08x,Dispositon=0x%08x, Flags=0x%08x,Handle=0x%p,Status=0x%08x", 
+					Data->Name, Data->DesiredAccess, Data->ShareMode, Data->CreationDisposition, 
+					Data->FlagsAndAttributes, Data->FileHandle, 
 					Data->LastErrorStatus);
 
 	return S_OK;
@@ -787,12 +788,6 @@ FsDecodeIoControl(
 	case FSCTL_SIS_LINK_FILES :
 		StringCchCopyW(Code, Size, L"FSCTL_SIS_LINK_FILES");
 		break;
-	case FSCTL_HSM_MSG :
-		StringCchCopyW(Code, Size, L"FSCTL_HSM_MSG");
-		break;
-	case FSCTL_HSM_DATA :
-		StringCchCopyW(Code, Size, L"FSCTL_HSM_DATA");
-		break;
 	case FSCTL_RECALL_FILE :
 		StringCchCopyW(Code, Size, L"FSCTL_RECALL_FILE");
 		break;
@@ -1007,12 +1002,12 @@ FsDecodeIoControl(
 	case IOCTL_MOUNTMGR_SET_AUTO_MOUNT :
 		StringCchCopyW(Code, Size, L"IOCTL_MOUNTMGR_SET_AUTO_MOUNT");
 		break;
-	case IOCTL_MOUNTMGR_BOOT_DL_ASSIGNMENT :
-		StringCchCopyW(Code, Size, L"IOCTL_MOUNTMGR_BOOT_DL_ASSIGNMENT");
-		break;
-	case IOCTL_MOUNTMGR_TRACELOG_CACHE :
-		StringCchCopyW(Code, Size, L"IOCTL_MOUNTMGR_TRACELOG_CACHE");
-		break;
+//	case IOCTL_MOUNTMGR_BOOT_DL_ASSIGNMENT :
+//		StringCchCopyW(Code, Size, L"IOCTL_MOUNTMGR_BOOT_DL_ASSIGNMENT");
+//		break;
+//	case IOCTL_MOUNTMGR_TRACELOG_CACHE :
+//		StringCchCopyW(Code, Size, L"IOCTL_MOUNTMGR_TRACELOG_CACHE");
+//		break;
 
 		//
 		// UNKNOWN

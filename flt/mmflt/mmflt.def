@@ -1,4 +1,4 @@
-NAME dprobe.mm.flt
+NAME mmflt.flt
 
 EXPORTS
 	BtrFltGetObject

@@ -68,6 +68,14 @@ MspValidateCachePath(
 	)
 {
 	HANDLE Handle;
+	BOOL Status;
+
+	Status = CreateDirectory(Path, NULL);
+	if (!Status) { 
+		if (GetLastError() != ERROR_ALREADY_EXISTS) {
+			return MSP_STATUS_ERROR;
+		}
+	}
 
 	Handle = CreateFile(Path, GENERIC_READ|GENERIC_WRITE, FILE_SHARE_READ|FILE_SHARE_WRITE, NULL,
 						OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS | FILE_ATTRIBUTE_NORMAL, NULL);

@@ -659,7 +659,7 @@ BspQueryProcessList(
 
 		Length = 0;
 		NtStatus = (*NtQueryInformationProcess)(ProcessHandle,
-											    ProcessBasicInformation,
+											    0,
 											    &ProcessInformation,
 											    sizeof(PROCESS_BASIC_INFORMATION),
 											    &Length);		
@@ -1507,7 +1507,7 @@ BspQueryTebAddress(
 	THREAD_BASIC_INFORMATION BasicInformation = {0};
 
 	Status = (*NtQueryInformationThread)(ThreadHandle,
-										 ThreadBasicInformation,
+										 0,
 									     &BasicInformation,
 									     sizeof(THREAD_BASIC_INFORMATION),
 									     NULL);
@@ -1528,7 +1528,7 @@ BspQueryPebAddress(
 	PROCESS_BASIC_INFORMATION Information = {0};
 
 	NtStatus = (*NtQueryInformationProcess)(ProcessHandle,
-										    ProcessBasicInformation,
+										    0,
 										    &Information,
 										    sizeof(PROCESS_BASIC_INFORMATION),
 										    &Length);		

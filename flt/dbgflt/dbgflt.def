@@ -1,4 +1,4 @@
-NAME dprobe.dbg.flt
+NAME dbgflt.flt
 
 EXPORTS
 	BtrFltGetObject

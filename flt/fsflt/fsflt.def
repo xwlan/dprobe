@@ -1,4 +1,4 @@
-NAME dprobe.fs.flt
+NAME fsflt.flt
 
 EXPORTS
 	BtrFltGetObject
