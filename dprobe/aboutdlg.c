@@ -76,7 +76,7 @@ AboutOnNotify(
 
 	if ((int)wp == IDC_SYSLINK) {
 		if (lpnmlink->hdr.code == NM_CLICK) {
-			ShellExecuteW(NULL, L"open", L"mailto:dprobebugs@gmail.com?subject=bug report", NULL, NULL, SW_SHOWNORMAL);  
+			ShellExecuteW(NULL, L"open", L"mailto:lan.john@gmail.com", NULL, NULL, SW_SHOWNORMAL);  
 			return 0;
 		}
 	}
