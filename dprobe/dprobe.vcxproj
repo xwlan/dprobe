@@ -327,16 +327,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="driver.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="euladlg.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
@@ -387,12 +377,6 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="importdlg.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="kernelmode.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -502,14 +486,6 @@
     </ClCompile>
     <ClCompile Include="msputility.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="ntapi.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="option.c">
@@ -703,7 +679,6 @@
     <ClInclude Include="detaildlg.h" />
     <ClInclude Include="dialog.h" />
     <ClInclude Include="dprobe.h" />
-    <ClInclude Include="driver.h" />
     <ClInclude Include="euladlg.h" />
     <ClInclude Include="fastdlg.h" />
     <ClInclude Include="filterdlg.h" />
@@ -712,7 +687,6 @@
     <ClInclude Include="frame.h" />
     <ClInclude Include="graphctrl.h" />
     <ClInclude Include="importdlg.h" />
-    <ClInclude Include="kernelmode.h" />
     <ClInclude Include="listview.h" />
     <ClInclude Include="logview.h" />
     <ClInclude Include="main.h" />

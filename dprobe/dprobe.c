@@ -8,7 +8,6 @@
 #include "frame.h"
 #include "main.h"
 #include "mdb.h"
-#include "driver.h"
 #include "perf.h"
 #include "mspdtl.h"
 #include "mspprocess.h"
