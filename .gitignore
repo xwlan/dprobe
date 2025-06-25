@@ -1,4 +1,3 @@
-*.user
 *.bsc
 *.map
 *.pdb
@@ -15,8 +14,16 @@
 *.lst
 *.lib
 *.swp
+*.flt
+*.db
+*.dtl
+*.dtc
+*.aps
+
+
 bin
 lib
 obj
+.vs
 
 

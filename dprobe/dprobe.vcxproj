@@ -774,7 +774,6 @@
     <Image Include="res\upward.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\calc1.bin" />
     <None Include="res\eula1.bin" />
     <None Include="res\DUMP.rtf" />
     <None Include="res\LICENCE.rtf" />
