@@ -126,6 +126,11 @@ BspInitialize(
 	VOID
 	);
 
+BOOLEAN
+BspGetSystemRoutine(
+	VOID
+	);
+
 BOOLEAN 
 BspIsWow64Process(
 	IN HANDLE ProcessHandle	
@@ -429,11 +434,6 @@ BspConvertUTF8ToUnicode(
 ULONG 
 BspGoldenHash(
 	IN PVOID Address
-	);
-
-BOOLEAN
-BspGetSystemRoutine(
-	VOID
 	);
 
 PULONG_PTR

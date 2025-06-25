@@ -20,8 +20,12 @@ SdkInitialize(
 {
 	BOOLEAN Status;
 	INITCOMMONCONTROLSEX CommonCtrls;
+	USHORT Length = 0;
 
 	SdkInstance = Instance;
+
+	SdkGetProcessPathA(SdkProcessPathA, MAX_PATH, &Length);
+	SdkGetProcessPathW(SdkProcessPathW, MAX_PATH, &Length);
 
 	CommonCtrls.dwSize = sizeof(CommonCtrls);
 	CommonCtrls.dwICC = ICC_LISTVIEW_CLASSES | ICC_TREEVIEW_CLASSES |
@@ -580,3 +584,48 @@ SdkSaveBitmap(
 	DeleteObject(hBitmap);   
 	return   TRUE; 
 } 
+
+
+WCHAR SdkProcessPathW[MAX_PATH];
+CHAR SdkProcessPathA[MAX_PATH];
+
+ULONG
+SdkGetProcessPathA(
+	__in PCHAR Buffer,
+	__in USHORT Length,
+	__out PUSHORT ActualLength
+)
+{
+	HMODULE ModuleHandle;
+	PCHAR Slash;
+
+	ModuleHandle = GetModuleHandle(NULL);
+	GetModuleFileNameA(ModuleHandle, Buffer, Length);
+
+	Slash = strrchr(Buffer, '\\');
+	Slash[0] = 0;
+
+	*ActualLength = (USHORT)(((ULONG_PTR)Slash - (ULONG_PTR)Buffer) / sizeof(CHAR));
+	return S_OK;
+}
+
+ULONG
+SdkGetProcessPathW(
+	__in PWCHAR Buffer,
+	__in USHORT Length,
+	__out PUSHORT ActualLength
+)
+{
+	HMODULE ModuleHandle;
+	PWCHAR Slash;
+
+	ModuleHandle = GetModuleHandle(NULL);
+	GetModuleFileNameW(ModuleHandle, Buffer, Length);
+
+	//Slash = strrchr(Buffer, '\\');
+	Slash = wcsrchr(Buffer, L'\\');
+	Slash[0] = 0;
+
+	*ActualLength = (USHORT)(((ULONG_PTR)Slash - (ULONG_PTR)Buffer) / sizeof(WCHAR));
+	return S_OK;
+}

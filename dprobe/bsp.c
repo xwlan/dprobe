@@ -30,6 +30,13 @@ LIST_ENTRY BspLogList;
 BSP_LOCK BspLogLock;
 ULONG BspLogCount;
 
+NTQUERYSYSTEMINFORMATION  NtQuerySystemInformation;
+NTQUERYINFORMATIONPROCESS NtQueryInformationProcess;
+NTQUERYINFORMATIONTHREAD  NtQueryInformationThread;
+NTSUSPENDPROCESS NtSuspendProcess;
+NTRESUMEPROCESS  NtResumeProcess;
+RTLCREATEUSERTHREAD RtlCreateUserThread;
+
 //
 // Compile time process type flag
 //
@@ -94,6 +101,58 @@ BspSetFlag(
 //
 // Implementation
 //
+BOOLEAN
+BspGetSystemRoutine(
+	VOID
+)
+{
+	HMODULE DllHandle;
+
+	//
+	// Get system routine address
+	//
+
+	DllHandle = LoadLibrary(L"ntdll.dll");
+	if (!DllHandle) {
+		return FALSE;
+	}
+
+	NtQuerySystemInformation = (NTQUERYSYSTEMINFORMATION)GetProcAddress(DllHandle, "NtQuerySystemInformation");
+	if (!NtQuerySystemInformation) {
+		return FALSE;
+	}
+
+	NtQueryInformationProcess = (NTQUERYINFORMATIONPROCESS)GetProcAddress(DllHandle, "NtQueryInformationProcess");
+	if (!NtQueryInformationProcess) {
+		return FALSE;
+	}
+
+	NtQueryInformationThread = (NTQUERYINFORMATIONTHREAD)GetProcAddress(DllHandle, "NtQueryInformationThread");
+	if (!NtQueryInformationThread) {
+		return FALSE;
+	}
+
+	/*
+	NtSuspendProcess = (NTSUSPENDPROCESS)GetProcAddress(DllHandle, "NtSuspendProcess");
+	if (!NtSuspendProcess) {
+		return FALSE;
+	}
+
+	NtResumeProcess = (NTRESUMEPROCESS)GetProcAddress(DllHandle, "NtResumeProcess");
+	if (!NtResumeProcess) {
+		return FALSE;
+	}
+
+	if (ApsIsWindowsXPAbove()) {
+		RtlCreateUserThread = (RTLCREATEUSERTHREAD)GetProcAddress(DllHandle, "RtlCreateUserThread");
+		if (!RtlCreateUserThread) {
+			return FALSE;
+		}
+	}
+	*/
+
+	return TRUE;
+}
 
 ULONG
 BspAllocateQueryBuffer(
@@ -503,6 +562,7 @@ BspQueryProcessInformation(
 // fetch command line.
 //
 
+/*
 typedef struct _CURDIR {
      UNICODE_STRING DosPath;
      PVOID Handle;
@@ -553,6 +613,179 @@ typedef struct _PEB {
     PVOID ProcessHeap;
 } PEB, *PPEB;
 
+*/
+
+ULONG
+BspQueryProcessList(
+	__out PLIST_ENTRY ListHead
+)
+{
+	ULONG Status;
+	NTSTATUS NtStatus;
+	PVOID StartVa;
+	ULONG Length;
+	ULONG ReturnedLength;
+	ULONG Offset;
+
+	PROCESS_BASIC_INFORMATION  ProcessInformation;
+	HANDLE ProcessHandle;
+	PBSP_PROCESS Process;
+	SYSTEM_PROCESS_INFORMATION* Entry;
+	ULONG_PTR Address;
+	WCHAR Buffer[1024];
+	SIZE_T Complete;
+
+	ASSERT(ListHead != NULL);
+
+	InitializeListHead(ListHead);
+
+	StartVa = NULL;
+	Length = 0;
+	ReturnedLength = 0;
+
+	Status = BspAllocateQueryBuffer(SystemProcessInformation,
+		&StartVa,
+		&Length,
+		&ReturnedLength);
+
+	if (Status != S_OK) {
+		return Status;
+	}
+
+	Offset = 0;
+
+	while (Offset < ReturnedLength) {
+
+		Entry = (SYSTEM_PROCESS_INFORMATION*)((PCHAR)StartVa + Offset);
+		Offset += Entry->NextEntryOffset;
+
+		if (Entry->UniqueProcessId == (HANDLE)0 || Entry->UniqueProcessId == (HANDLE)4) {
+			continue;
+		}
+
+		ProcessHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, HandleToUlong(Entry->UniqueProcessId));
+		if (ProcessHandle == NULL) {
+
+			//
+			// Some process can not be debugged, e.g. audiodiag.exe on Vista/2008
+			//
+
+			if (Entry->NextEntryOffset == 0) {
+				Status = S_OK;
+				break;
+			}
+			else {
+				continue;
+			}
+		}
+
+		Process = (PBSP_PROCESS)BspMalloc(sizeof(BSP_PROCESS));
+		if (Process == NULL) {
+			Status = GetLastError();
+			break;
+		}
+
+		ZeroMemory(Process, sizeof(BSP_PROCESS));
+		Process->Name = BspMalloc(Entry->ImageName.Length + sizeof(WCHAR));
+		wcscpy(Process->Name, Entry->ImageName.Buffer);
+
+		Process->ProcessId = HandleToUlong(Entry->UniqueProcessId);
+		Process->SessionId = Entry->SessionId;
+		Process->ParentId = HandleToUlong(Entry->InheritedFromUniqueProcessId);
+		Process->KernelTime = Entry->KernelTime;
+		Process->UserTime = Entry->UserTime;
+		Process->VirtualBytes = Entry->VirtualSize;
+		Process->PrivateBytes = Entry->PrivatePageCount;
+		Process->WorkingSetBytes = Entry->WorkingSetSize;
+		Process->ThreadCount = Entry->NumberOfThreads;
+		Process->KernelHandleCount = Entry->HandleCount;
+		Process->ReadTransferCount = Entry->ReadTransferCount;
+		Process->WriteTransferCount = Entry->WriteTransferCount;
+		Process->OtherTransferCount = Entry->OtherTransferCount;
+
+		Process->GdiHandleCount = GetGuiResources(ProcessHandle, GR_GDIOBJECTS);
+		Process->UserHandleCount = GetGuiResources(ProcessHandle, GR_USEROBJECTS);
+
+		Process->FullPath = BspMalloc(MAX_PATH * 2 + sizeof(WCHAR));
+		GetModuleFileNameEx(ProcessHandle, NULL, Process->FullPath, MAX_PATH * 2 - 1);
+
+		//
+		// Special case for smss.exe
+		//
+
+		/*if (_wcsicmp(L"smss.exe", Process->Name) == 0) {
+			GetSystemDirectory(&SystemRoot[0], MAX_PATH - 1);
+			wcsncat(SystemRoot, L"\\", MAX_PATH - 1);
+			wcsncat(SystemRoot, Process->Name, MAX_PATH - 1);
+			wcsncpy(Process->FullPath, SystemRoot, MAX_PATH - 1);
+		}*/
+
+		Length = 0;
+		NtStatus = (*NtQueryInformationProcess)(ProcessHandle,
+			ProcessBasicInformation,
+			&ProcessInformation,
+			sizeof(PROCESS_BASIC_INFORMATION),
+			&Length);
+		//
+		// N.B. PEB is the primary key data structure we're interested.
+		// We need command line since many processes can only be distingushed
+		// from command line parameter, e.g. svchost, dllhost etc.
+		//
+
+		if (NtStatus == STATUS_SUCCESS) {
+
+			RtlZeroMemory(Buffer, sizeof(Buffer));
+
+			Process->PebAddress = ProcessInformation.PebBaseAddress;
+			Address = (ULONG_PTR)Process->PebAddress + FIELD_OFFSET(PEB, ProcessParameters);
+			ReadProcessMemory(ProcessHandle, (PVOID)Address, Buffer, sizeof(PVOID), &Complete);
+
+			//
+			// Get RTL_USER_PROCESS_PARAMETER address
+			//
+
+			Address = *(PULONG_PTR)Buffer;
+			Address = Address + FIELD_OFFSET(RTL_USER_PROCESS_PARAMETERS, CommandLine);
+			ReadProcessMemory(ProcessHandle, (PVOID)Address, Buffer, sizeof(UNICODE_STRING), &Complete);
+
+			//
+			// Get CommandLine UNICODE_STRING data
+			//
+
+			Address = (ULONG_PTR)((PUNICODE_STRING)Buffer)->Buffer;
+			Length = ((PUNICODE_STRING)Buffer)->Length;
+
+			Buffer[1023] = 0;
+			Length = min(1023 * sizeof(WCHAR), Length);
+
+			ReadProcessMemory(ProcessHandle, (PVOID)Address, Buffer, Length, &Complete);
+
+			if (Length > 0 && Complete > 0) {
+
+				Process->CommandLine = BspMalloc(Length + sizeof(WCHAR));
+				wcscpy(Process->CommandLine, Buffer);
+
+			}
+			else {
+				Process->CommandLine = NULL;
+			}
+		}
+
+		CloseHandle(ProcessHandle);
+		ProcessHandle = NULL;
+
+		InsertTailList(ListHead, &Process->ListEntry);
+
+		if (Entry->NextEntryOffset == 0) {
+			Status = S_OK;
+			break;
+		}
+	}
+
+	BspReleaseQueryBuffer(StartVa);
+	return Status;
+}
+/*
 ULONG
 BspQueryProcessList(
 	OUT PLIST_ENTRY ListHead
@@ -650,13 +883,6 @@ BspQueryProcessList(
 		// Special case for smss.exe
 		//
 
-		/*if (_wcsicmp(L"smss.exe", Process->Name) == 0) {
-			GetSystemDirectory(&SystemRoot[0], MAX_PATH - 1);
-			wcsncat(SystemRoot, L"\\", MAX_PATH - 1);
-			wcsncat(SystemRoot, Process->Name, MAX_PATH - 1);
-			wcsncpy(Process->FullPath, SystemRoot, MAX_PATH - 1);
-		}*/
-
 		Length = 0;
 		NtStatus = (*NtQueryInformationProcess)(ProcessHandle,
 											    0,
@@ -722,6 +948,8 @@ BspQueryProcessList(
 	BspReleaseQueryBuffer(StartVa);
 	return Status;
 }
+
+*/
 
 ULONG
 BspQueryModule(

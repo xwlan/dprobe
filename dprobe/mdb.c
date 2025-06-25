@@ -84,11 +84,14 @@ MdbSetDefaultValues(
 		}
 	}
 
+	SqlExecute(MdbObject, L"DROP TABLE MetaData IF EXISTS MetaData");
+	Status = SqlExecute(MdbObject, L"CREATE TABLE MetaData (Key text PRIMARY KEY, Value text)");
+	if (Status != SQLITE_OK) {
+		return Status;
+	}
+	
 	SqlBeginTransaction(MdbObject);
 
-	StringCchCopy(Sql, MAX_PATH, L"DELETE FROM MetaData");
-	SqlExecute(MdbObject, Sql);
-	
 	Buffer[0] = L'\0';
 	GetEnvironmentVariable(L"_NT_SYMBOL_PATH", Buffer, MAX_PATH);
 	StringCchPrintf(Sql, MAX_PATH, L"INSERT INTO MetaData VALUES(\"MdbSymbolPath\", \"%ws\")", Buffer);
@@ -120,7 +123,7 @@ MdbInitialize(
 
 	MdbCreatePath();
 
-	GetCurrentDirectory(MAX_PATH, MdbPath);
+	wcscpy_s(MdbPath, MAX_PATH, SdkProcessPathW);
 	StringCchCat(MdbPath, MAX_PATH, L"\\dprobe.db");
 
 	Status = SqlOpen(MdbPath, &MdbObject);
@@ -326,24 +329,21 @@ MdbCreatePath(
 	VOID
 	)
 {
-	WCHAR Path[MAX_PATH];
 	WCHAR Buffer[MAX_PATH];
-
-	GetCurrentDirectory(MAX_PATH, Path);
 
 	//
 	// Create sym path
 	//
 
-	StringCchPrintf(Buffer, MAX_PATH, L"%s\\sym", Path);
-	CreateDirectory(Path, NULL);
+	StringCchPrintfW(Buffer, MAX_PATH, L"%s\\sym", SdkProcessPathW);
+	CreateDirectoryW(Buffer, NULL);
 
 	//
 	// Create log path
 	//
 
-	StringCchPrintf(Buffer, MAX_PATH, L"%s\\log", Path);
-	CreateDirectory(Path, NULL);
+	StringCchPrintfW(Buffer, MAX_PATH, L"%s\\log", SdkProcessPathW);
+	CreateDirectoryW(Buffer, NULL);
 }
 
 ULONG

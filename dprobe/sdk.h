@@ -143,6 +143,23 @@ SdkSaveBitmap(
 	IN int nColor
 	);
 
+ULONG
+SdkGetProcessPathW(
+	__in PWCHAR Buffer,
+	__in USHORT Length,
+	__out PUSHORT ActualLength
+	);
+
+ULONG
+SdkGetProcessPathA(
+	__in PCHAR Buffer,
+	__in USHORT Length,
+	__out PUSHORT ActualLength
+	);
+
+extern CHAR SdkProcessPathA[];
+extern WCHAR SdkProcessPathW[];
+
 LONG WINAPI 
 SdkUnhandledExceptionFilter(
 	__in struct _EXCEPTION_POINTERS* Pointers 
